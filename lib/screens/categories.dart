@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/data/dummy_data.dart';
+import 'package:meals_app/screens/meals.dart';
 import 'package:meals_app/widgets/categorygriditem.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
+
+  void _selectCategory(BuildContext context) {
+    //it will push the route which will be a widget on top of current stack of screens.
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (ctx) => MealsScreen(
+              title: 'Some title',
+              meals: [],
+            ))); //Navigator.push(context, route)
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +31,12 @@ class CategoriesScreen extends StatelessWidget {
           children: [
             //availableCategories.map((category) => CategoryGridItem(category: category)).toList() is an alternative for for loop
             for (final category in availableCategories)
-              CategoryGridItem(category: category)
+              CategoryGridItem(
+                category: category,
+                onselectCategory: () {
+                  _selectCategory(context);
+                },
+              )
           ]),
     );
   }

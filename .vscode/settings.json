@@ -1,3 +1,5 @@
 {
-    "cmake.sourceDirectory": "/home/parth/Desktop/meals_app/linux/flutter"
+    "cmake.sourceDirectory": "/home/parth/Desktop/meals_app/linux/flutter",
+    "cmake.configureOnOpen": false,
+    "java.compile.nullAnalysis.mode": "disabled"
 }

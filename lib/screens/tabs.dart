@@ -64,8 +64,9 @@ class _TabsScreenState extends State<TabsScreen> {
 
           //new screen will not be pushed to stack of screens , but the currently active screen will be replaced with
           MaterialPageRoute(
-              builder: (ctx) =>
-                  const FilterScreen())); // this screen, so the back button of the device wont event work to go back
+              builder: (ctx) => FilterScreen(
+                    currentFilters: _selectedFilters,
+                  ))); // this screen, so the back button of the device wont event work to go back
 
       setState(() {
         _selectedFilters = result ?? kInitialFilters;

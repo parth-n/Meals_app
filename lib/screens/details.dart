@@ -10,6 +10,8 @@ class DetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final favoriteMeals = ref.watch(favoriteMealsProvider);
+    final isFavorite = favoriteMeals.contains(meal);
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
@@ -26,7 +28,8 @@ class DetailScreen extends ConsumerWidget {
                         ? 'Meal added as a favorite'
                         : 'Meal removed from favorite')));
               },
-              icon: const Icon(Icons.star_border)) // favorite icon
+              icon: Icon(
+                  isFavorite ? Icons.star : Icons.star_border)) // favorite icon
         ],
       ),
       body: SingleChildScrollView(
